@@ -1,26 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import AuthForm from '../components/AuthForm';
-import { login, register } from '../api';
+import { useAuth } from '../context/AuthContext'; 
 
 const AuthPage = () => {
   const [isRegister, setIsRegister] = useState(false);
-  const navigate = useNavigate();
+  const { login, register } = useAuth(); 
 
   const handleAuthSubmit = async (email, password) => {
-    try {
-      if (isRegister) {
-        await register(email, password);
-        
-        setIsRegister(false); 
-        alert('Registration successful! Please log in.');
-      } else {
-        await login(email, password);
-        
-        navigate('/tasks');
-      }
-    } catch (error) {
-      throw error;
+    if (isRegister) {
+      await register(email, password);
+    } else {
+      await login(email, password);
     }
   };
 

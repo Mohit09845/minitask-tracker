@@ -1,11 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AuthPage from './pages/AuthPage';
 import TasksPage from './pages/TaskPage';
-
-const useAuth = () => {
-  const user = null; 
-  return { user };
-};
+import { useAuth } from './context/AuthContext';
 
 const App = () => {
   const { user } = useAuth();

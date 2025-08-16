@@ -1,29 +1,38 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
-    withCredentials: true,
+  baseURL: import.meta.env.VITE_API_URL,
+  withCredentials: true,
 });
 
-export const login = (email, password) =>{
-    API.post("/api/auth/login", { email, password });
-}
+export const getMe = () => {
+  return API.get("/api/auth/me")
+};
 
-export const register = (email, password) =>{
-    API.post("/api/auth/register", { email, password });
-}
+export const login = (email, password) => {
+  return API.post("/api/auth/login", { email, password });
+};
 
-export const getTasks = () =>{
-    API.get("/api/tasks");
-}
-export const createTask = (taskData) =>{
-    API.post("/api/tasks", taskData);
-}
+export const register = (email, password) => {
+  return API.post("/api/auth/register", { email, password });
+};
 
-export const updateTask = (id, updateData) =>{
-    API.put(`/api/tasks/${id}`, updateData);
-}
+export const logout = () => {
+  return API.post("/api/auth/logout")
+};
+
+export const getTasks = () => {
+  return API.get("/api/tasks");
+};
+
+export const createTask = (taskData) => {
+  return API.post("/api/tasks", taskData);
+};
+
+export const updateTask = (id, updateData) => {
+  return API.put(`/api/tasks/${id}`, updateData);
+};
 
 export const deleteTask = (id) => {
-    API.delete(`/api/tasks/${id}`);
-}
+  return API.delete(`/api/tasks/${id}`);
+};

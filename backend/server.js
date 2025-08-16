@@ -21,7 +21,7 @@ app.get('/ping', (_, res) => {
 });
 
 app.use('/api/auth', authRoutes);
-app.use('/api/auth', taskRoutes);
+app.use('/api/tasks', taskRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

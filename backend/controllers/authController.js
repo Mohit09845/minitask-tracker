@@ -80,3 +80,13 @@ export const login = async (req, res) => {
     res.status(500).json({ error: 'Server error during login' });
   }
 };
+
+export const logout = async (req, res) => {
+   try {
+    res.clearCookie("jwt");
+    res.status(200).json({ message: "User logged out successfully" });
+  } catch (error) {
+    console.error("Error in logout controller:", error);
+    res.status(500).json({ error: "Server error during logout" });
+  }
+}
