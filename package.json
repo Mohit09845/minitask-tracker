@@ -1,0 +1,21 @@
+{
+  "name": "energy-assignment",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build && cd ../backend && npm install && npm run build",
+    "vercel-build": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohit09845/minitask-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mohit09845/minitask-tracker/issues"
+  },
+  "homepage": "https://github.com/Mohit09845/minitask-tracker#readme",
+  "description": ""
+}

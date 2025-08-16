@@ -7,7 +7,6 @@ import authRoutes from './routes/authRoute.js';
 import taskRoutes from "./routes/taskRoute.js";
 
 const app = express();
-const PORT = process.env.PORT || 8080;
 
 app.use(cors({
   origin: "http://localhost:5173",
@@ -23,6 +22,4 @@ app.get('/ping', (_, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+export default app;
