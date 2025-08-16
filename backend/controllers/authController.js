@@ -2,7 +2,6 @@ import prisma from '../config/prisma.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-
 const generateTokenAndSetCookie = (userId, email, res) => {
   const token = jwt.sign({ userId, email }, process.env.JWT_SECRET, {
     expiresIn: '1d',
@@ -15,7 +14,6 @@ const generateTokenAndSetCookie = (userId, email, res) => {
     secure: process.env.NODE_ENV === "production",
   });
 };
-
 
 export const register = async (req, res) => {
   const { email, password } = req.body;
@@ -44,13 +42,10 @@ export const register = async (req, res) => {
       },
     });
   } catch (error) {
-    if (error.code === 'P2002') {
-      return res.status(409).json({ error: 'Email is already in use' });
-    }
+    console.error("Error:- ", error);
     res.status(500).json({ error: 'Server error during registration' });
   }
 };
-
 
 export const login = async (req, res) => {
   const { email, password } = req.body;
